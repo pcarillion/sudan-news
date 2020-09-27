@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Thasadith:wght@400;700&display=swap');
+
+
+* {
+    font-family: 'Thasadith';
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    margin: 0;
+    /* background-color:rgba(4, 127, 237, 0.1) */
+     /* rgba(18, 8, 240, 0.3); */
+}
+
+.hidden {
+    display : none;
+}
+
+.header {
+    height: 85px;
+
+}
+
+.header-p {
+    transition: all 1s linear;
+
+}
+
+.language-button{
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 28px 27px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;     
+    z-index: 3;   
+}
+
+.active {
+    background-color: rgba(204, 68, 0, 0.8);
+    /* box-shadow: 0 2px 2px black; */
+    box-shadow: 0 2px 5px 0 rgba(51,51,79,.7);
+    color: white;
+}
+
+.non-active {
+    /* padding-bottom: 1px; */
+    border: solid 0.5px rgba(0, 0, 0, 0.6);   
+    box-shadow: 0 2px 5px 0 rgba(51,51,79,.7) inset;
+    /* background-color: #FBFBF8; */
+}
+
+.active:hover {
+    cursor: default;
+}
+
+
+.non-active:hover {
+    cursor: pointer;
+} 
+
+.language-button div {
+    width: 90px;
+    text-align: center;
+    height: 25px;
+}
+
+.language-button div:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.language-button div:nth-child(2) {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.language-button div p {
+    margin-top: 3px;
+}
+
+.dm-color-white .non-active {
+    color: white;
+    border: grey 1px solid;
+    /* border-left: none; */
+}
+
+.dm-color-white .active {
+    color: white;
+    border: grey 1px solid;
+    /* border-left: none; */
+}
+
+.dark-mode-btn {
+    position: fixed;
+    top: 110px;
+    right: 27px;
+    width: 90px;
+    height: 22px;
+    border-radius: 5px;
+    z-index: 3;
+    text-align: center;
+    padding-top: 3px;
+    background-color: #04101B;
+    color: white;
+    transition: all 1s linear;
+}
+
+.dark-mode-btn.non-active {
+    background-color: #04101B;
+    color: white;
+}
+.dark-mode-btn.active {
+    /* background-color: white; */
+    /* color: black; */
+    border: 1px solid grey;
+    cursor: pointer;
+
+}
+
+.article {
+    margin-left: 334px;
+    padding-top: 150px;
+}
+
+.container {
+    max-width: 900px;
+    width: 56%;
+    margin: 20px auto;
+}
+
+.article h1 {
+    color: #CC4400;
+}
+
+.article h3 {
+    /* color: #369200; */
+}
+
+.article p {
+    font-size: 20px;
+    margin: 20px 0;
+}

@@ -1,0 +1,159 @@
+import React ,{ useState, useEffect }  from 'react';
+
+
+
+// js
+import Layout from '../components/Layout'
+
+// css 
+import style from '../styles/category.module.css'
+
+const News = () => {
+
+    // const [scrolling, setScrolling] = useState(false);
+    // const [scrollTop, setScrollTop] = useState(0);
+    // const [pIsHidden, setpIsHidden] = useState(false);
+    // const [headerHeight, setHeaderHight] = useState('85px')
+
+    // useEffect(() => {
+    //     const onScroll = e => {
+    //       setScrollTop(e.target.documentElement.scrollTop);
+    //       setScrolling(e.target.documentElement.scrollTop > scrollTop);
+    //       setpIsHidden(scrollTop > 16)
+    //       if (scrollTop > 16) {
+    //           console.log(scrollTop)
+    //           let height = 85 - scrollTop
+    //           setHeaderHight(`${height}px`);
+    //       }
+    //       if (scrollTop < 16) {
+    //         setHeaderHight(`85px`);
+    //       }
+    //     };
+    //     window.addEventListener("scroll", onScroll);
+    
+    //     return () => window.removeEventListener("scroll", onScroll);
+    //   }, [scrollTop]);
+        
+
+
+    return (
+        <Layout>
+            {props =>(<div className={style.container} style={{marginLeft: `${props.close? '0px': '334px'}`}}>
+                    <div className={`header ${style.header} ${props.dark_mode && style.headerDm}`} style={{height: '85px', marginLeft: `${props.close? '25px': '25px'}`, width: `${props.close ? 'calc(100vw - 96px)': 'calc(100vw - 334px - 96px)'}`}}>
+                        <h1>News</h1>
+                        <p className={'header-p'}>Ceci est la section News dans laquelle sont écrites des brèves sur l'actualité au Soudan</p>
+                    </div>
+                    <div className={style.presentationsContainer}>
+                    <div className={style.articlePresentation}
+                        style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
+                        >
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                                <div className={style.articleText}>
+                                    <h2>
+                                        Les inondations au Soudan
+                                    </h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. 
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={style.articlePresentation}
+                        style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
+                        >
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                                <div className={style.articleText}>
+                                    <h2>
+                                        Les inondations au Soudan
+                                    </h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. 
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={style.articlePresentation}
+                        style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
+                        >
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                                <div className={style.articleText}>
+                                    <h2>
+                                        Les inondations au Soudan
+                                    </h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. 
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={style.articlePresentation}
+                        style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
+                        >
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                                <div className={style.articleText}>
+                                    <h2>
+                                        Les inondations au Soudan
+                                    </h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. 
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={style.articlePresentation}
+                        style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
+                        >
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                                <div className={style.articleText}>
+                                    <h2>
+                                        Les inondations au Soudan
+                                    </h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. 
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={style.articlePresentation}
+                        style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
+                        >
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                                <div className={style.articleText}>
+                                    <h2>
+                                        Les inondations au Soudan
+                                    </h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. 
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={style.articlePresentation}
+                        style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
+                        >
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                                <div className={style.articleText}>
+                                    <h2>
+                                        Les inondations au Soudan
+                                    </h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. 
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+            </div>)}
+        </Layout>
+    )
+}
+
+export default News
