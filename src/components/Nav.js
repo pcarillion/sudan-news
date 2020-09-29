@@ -50,7 +50,7 @@ const Nav = ({callback, closeMenu, dm}) => {
     return (
         <nav className={dm.dark_mode && !close ? styles.navDarkmode : styles.nav} style={close? {width:'0px',padding: '0px', margin: '0px'} : {width: '270px'}}>
             <div className={dm.dark_mode? styles.logoDivDarkMode : styles.logoDiv}
-                style={close? {width: '85px', height: '80px', padding: '15px', margin: '26px 0px 0px 167px', left: '25px', borderRadius: '5px'}: {}}
+                style={close? {width: '85px', height: '80px', padding: '15px', margin: '0px 0px 0px 167px', left: '25px', borderRadius: '5px'}: {}}
             >
               <Img fluid={dm.dark_mode? logowhite.childImageSharp.fluid : logo.childImageSharp.fluid} className={styles.logo}/>
               <div className={styles.menuIcon}
