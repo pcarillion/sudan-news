@@ -12,7 +12,15 @@ import styles from '../styles/navandfooter.module.css'
 // query
 const query = graphql`
 query {
-  logo:file(relativePath:{eq:"sudannews.jpg"}){
+  logo:file(relativePath:{eq:"sudannews.png"}){
+    relativePath
+    childImageSharp{
+      fluid(quality:90, maxWidth: 4160){
+        ...GatsbyImageSharpFluid
+        }
+      }
+  }
+  logowhite:file(relativePath:{eq:"sudannewswhite.png"}){
     relativePath
     childImageSharp{
       fluid(quality:90, maxWidth: 4160){
@@ -24,7 +32,7 @@ query {
 `
 
 const Nav = ({callback, closeMenu, dm}) => {
-    const {logo} = useStaticQuery(query);
+    const {logo, logowhite} = useStaticQuery(query);
 
     const [close, setClose] = useState(false);
 
@@ -44,7 +52,7 @@ const Nav = ({callback, closeMenu, dm}) => {
             <div className={dm.dark_mode? styles.logoDivDarkMode : styles.logoDiv}
                 style={close? {width: '85px', height: '80px', padding: '15px', margin: '26px 0px 0px 167px', left: '25px', borderRadius: '5px'}: {}}
             >
-              <Img fluid={logo.childImageSharp.fluid} className={styles.logo}/>
+              <Img fluid={dm.dark_mode? logowhite.childImageSharp.fluid : logo.childImageSharp.fluid} className={styles.logo}/>
               <div className={styles.menuIcon}
                 style={close? {opacity: '1'} : {opacity: '0'}}
                 onClick={handleClose}

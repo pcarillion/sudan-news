@@ -39,8 +39,8 @@ const News = () => {
     return (
         <Layout>
             {props =>(<div className={style.container} style={{marginLeft: `${props.close? '0px': '334px'}`}}>
-                    <div className={`header ${style.header} ${props.dark_mode && style.headerDm}`} style={{height: '85px', marginLeft: `${props.close? '25px': '25px'}`, width: `${props.close ? 'calc(100vw - 96px)': 'calc(100vw - 334px - 96px)'}`}}>
-                        <h1>News</h1>
+                    <div className={`${style.header} ${props.dark_mode && style.headerDm}`} style={{height: '85px', marginLeft: `${props.close? '25px': '25px'}`, width: `${props.close ? 'calc(100vw - 96px)': 'calc(100vw - 334px - 96px)'}`}}>
+                        <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>News</h1>
                         <p className={'header-p'}>Ceci est la section News dans laquelle sont écrites des brèves sur l'actualité au Soudan</p>
                     </div>
                     <div className={style.presentationsContainer}>
@@ -62,7 +62,7 @@ const News = () => {
                         <div className={style.articlePresentation}
                         style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
                         >
-                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://s.rfi.fr/media/display/4cf389ae-f299-11ea-b381-005056bf87d6/w:1280/p:16x9/2020-09-09t081947z_1088983121_rc2wui9d2l52_rtrmadp_3_sudan-floods_0.webp)'}}>
                                 <div className={style.articleText}>
                                     <h2>
                                         Les inondations au Soudan
@@ -77,7 +77,7 @@ const News = () => {
                         <div className={style.articlePresentation}
                         style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
                         >
-                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://www.francetvinfo.fr/image/75njd3yyv-27e8/1200/450/19932711.jpg)'}}>
                                 <div className={style.articleText}>
                                     <h2>
                                         Les inondations au Soudan

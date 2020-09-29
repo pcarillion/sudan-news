@@ -12,16 +12,16 @@ import styles from '../styles/index.module.css'
 // js
 import Layout from '../components/Layout'
 
-export default function Home() {
+export default function Article() {
 
   return <Layout>
     {props =>(
-      <div className={styles.container}>
-        <div className={`header ${styles.header} ${props.dark_mode && styles.headerDm}`} style={{height: '85px', marginLeft: `${props.close? '25px': '25px'}`, width: `${props.close ? 'calc(100vw - 96px)': 'calc(100vw - 334px - 96px)'}`}}>
-                        <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>News</h1>
-                        <p className={'header-p'}>Ceci est la section News dans laquelle sont écrites des brèves sur l'actualité au Soudan</p>
+      <div className={styles.container} style={{marginLeft: `${props.close? '0px': '334px'}`}}>
+        <div className={`${styles.header} ${props.dark_mode && styles.headerDm}`} style={{height: '85px', marginLeft: `${props.close? '25px': '25px'}`, width: `${props.close ? 'calc(100vw - 96px)': 'calc(100vw - 334px - 96px)'}`}}>
+                        <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>La révolution ne s'arrête pas</h1>
+                        <p className={'header-p'}>20 Septembre 2020 | Mona Basha</p>
                     </div>
-        <div className={styles.article}>
+        <div className={props.dark_mode? styles.articledm : styles.article} style={props.close? {} : {}}>
           {props.the_lang == 'fr' && <h1>
             La révolution ne s'arrête pas
           </h1>}

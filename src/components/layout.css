@@ -21,16 +21,6 @@ body {
     display : none;
 }
 
-.header {
-    height: 85px;
-
-}
-
-.header-p {
-    transition: all 1s linear;
-
-}
-
 .language-button{
     position: fixed;
     top: 0;
@@ -124,26 +114,13 @@ body {
 
 }
 
-.article {
+/* .article {
     margin-left: 334px;
     padding-top: 150px;
-}
+} */
 
 .container {
     max-width: 900px;
     width: 56%;
     margin: 20px auto;
-}
-
-.article h1 {
-    color: #CC4400;
-}
-
-.article h3 {
-    /* color: #369200; */
-}
-
-.article p {
-    font-size: 20px;
-    margin: 20px 0;
 }
