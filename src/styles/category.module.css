@@ -4,17 +4,18 @@
 
 .container {
     margin-left: 334px;
-    padding-top: 25px;
+    /* padding-top: 25px; */
     transition: all 1s linear;
 }
 
 .header {
-    padding: 15px;
-    margin: 0 25px;
-    background-color: white;
-    box-shadow: 0 2px 5px 0 rgba(51,51,79,.07);
-    border-radius: 5px;
-    width: calc(100vw - 334px - 96px);
+    padding: 25px 0 15px 0;
+    margin: 0 0 0 25px;
+    background-color: #E5F2FD;
+    /* box-shadow: 0 2px 5px 0 rgba(51,51,79,.07); */
+    /* border-radius: 5px; */
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+    width: calc(100vw - 334px - 66px);
     position: fixed;
     z-index: 2;
     transition: all 1s linear;
@@ -26,7 +27,7 @@
 
 .header-dm {
     background-color: #04101B;
-    border: grey 1px solid;
+    border-bottom: grey 1px solid;
     color: white;
 }
 
@@ -37,7 +38,7 @@
 .header h1 {
     color: #CC4400;
     width: 160px;
-    border-right: grey 1px solid;
+    border-right: rgba(0, 0, 0, 0.3) 0.5px solid;
     padding: 20px;
     text-align: right;
 }
@@ -49,7 +50,7 @@
 }
 
 .presentations-container {
-    margin-top: 130px;
+    padding-top: 130px;
 }
 
 .article-presentation {

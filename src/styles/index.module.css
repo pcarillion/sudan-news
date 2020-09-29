@@ -22,10 +22,10 @@
 .header {
     padding: 15px;
     margin: 0 25px;
-    background-color: white;
+    background-color: #63605B;
     box-shadow: 0 2px 5px 0 rgba(51,51,79,.07);
     border-radius: 5px;
-    width: calc(100vw - 334px - 96px);
+    width: calc(100vw - 334px - 66px);
     position: fixed;
     z-index: 2;
     transition: all 1s linear;
