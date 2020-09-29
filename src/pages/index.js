@@ -17,7 +17,7 @@ export default function Home() {
   return <Layout>
     {props =>(
       <div className={styles.container}>
-        <div className={`header ${styles.header} ${props.dark_mode && styles.headerDm}`} style={{height: '85px', marginLeft: `${props.close? '25px': '25px'}`, width: `${props.close ? 'calc(100vw - 66px)': 'calc(100vw - 334px - 66px)'}`}}>
+        <div className={`header ${styles.header} ${props.dark_mode && styles.headerDm}`} style={{height: '65px', marginLeft: `${props.close? '25px': '0px'}`, width: `${props.close ? 'calc(100vw - 66px)': 'calc(100vw - 260px)'}`}}>
                         <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>News</h1>
                         <p className={'header-p'}>Ceci est la section News dans laquelle sont écrites des brèves sur l'actualité au Soudan</p>
                     </div>

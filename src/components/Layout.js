@@ -32,10 +32,10 @@ const Layout = (props) => {
     }
 
     return (
-        <main style={darkMode.dark_mode? {backgroundColor: '#04101B'} :  {backgroundColor: 'rgba(4, 127, 237, 0.1)'}}>
-            <Language callback={setLang} lang={language} dm={darkMode}/>
-            <DarkMode callback={setDM} dm={darkMode}/>
-            <Navbar callback={setClose} close={closeMenu} dm={darkMode}></Navbar>
+        <main>
+            {/* <Language callback={setLang} lang={language} dm={darkMode}/>
+            <DarkMode callback={setDM} dm={darkMode}/> */}
+            <Navbar callback={setClose} close={closeMenu} dm={darkMode} callbackDM={setDM} callbackLang={setLang} lang={language} dm={darkMode}></Navbar>
                 {props.children({...props, ...language, ...closeMenu, ...darkMode})}
             <Footer></Footer>
         </main>

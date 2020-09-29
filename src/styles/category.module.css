@@ -3,19 +3,19 @@
 /* #04101B */
 
 .container {
-    margin-left: 334px;
+    margin-left: 260px;
     /* padding-top: 25px; */
     transition: all 1s linear;
 }
 
 .header {
-    padding: 25px 0 15px 0;
-    margin: 0 0 0 25px;
-    background-color: #E5F2FD;
+    padding: 25px 25px 15px 25px;
+    /* margin: 0 0 0 25px; */
+    background-color: white;
     /* box-shadow: 0 2px 5px 0 rgba(51,51,79,.07); */
     /* border-radius: 5px; */
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
-    width: calc(100vw - 334px - 66px);
+    width: calc(100vw - 260px);
     position: fixed;
     z-index: 2;
     transition: all 1s linear;
@@ -50,28 +50,28 @@
 }
 
 .presentations-container {
-    padding-top: 130px;
+    padding-top: 105px;
 }
 
 .article-presentation {
-    margin: 0 25px 0 25px;
+    /* margin: 0 25px 0 25px; */
     background-color: white;
-    box-shadow: 0 2px 5px 0 rgba(51,51,79,.07);
+    /* box-shadow: 0 2px 5px 0 rgba(51,51,79,.07); */
     /* border-radius: 5px; */
     display: block;
-    height: 300px;
+    height: 210px;
     position: relative;
     display: flex;
     flex-direction: row;
 }
 .article-presentation:first-of-type, .article-presentation:first-of-type .thumbnailDiv{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    /* border-top-left-radius: 5px; */
+    /* border-top-right-radius: 5px; */
 
 }
 .article-presentation:last-of-type, .article-presentation:last-of-type .thumbnailDiv{
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    /* border-bottom-left-radius: 5px; */
+    /* border-bottom-right-radius: 5px; */
 }
 
 
@@ -87,21 +87,47 @@
 
 .articleText {
     width: 95%;
-    padding: 2.5%;
+    /* padding: 2.5%; */
+    position: relative;
 }
 
 .articleText h2 {
     margin-bottom: 20px;
+    font-family: 'Thasadith';
     font-size: 30px;
-    color: white;
-    text-align: center;
+    color: #CC4400;
+    text-align: left;
     font-weight: 700;
+    position: absolute; 
+    top: 85px;
+    left: 20px;
+    transition: all linear 0.3s;
 }
 
 .articleText p {
     font-size: 15px;
-    font-family: 'Open Sans', 'Thasadith';
+    font-family: 'Thasadith';
     font-weight: 300;
     color: white;
-    text-align: center;
+    text-align: left;
+    opacity: 0;
+    transition: all linear 0.5s;
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    width: calc(100vw - 320px)
+}
+
+.thumbnailDiv:hover h2 {
+    top: 20px;
+    left: 20px;
+    /* text-decoration: underline; */
+}
+
+.thumbnailDiv:hover {
+    cursor: pointer;
+}
+
+.thumbnailDiv:hover p {
+    opacity: 1;
 }

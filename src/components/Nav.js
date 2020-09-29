@@ -8,6 +8,9 @@ import { Helmet } from "react-helmet"
 // css et script
 import styles from '../styles/navandfooter.module.css'
 
+// components
+import Language from './Language'
+import DarkMode from './DarkMode'
 
 // query
 const query = graphql`
@@ -31,7 +34,7 @@ query {
 }
 `
 
-const Nav = ({callback, closeMenu, dm}) => {
+const Nav = ({callback, closeMenu, callbackDM, callbackLang, lang, dm}) => {
     const {logo, logowhite} = useStaticQuery(query);
 
     const [close, setClose] = useState(false);
@@ -48,7 +51,7 @@ const Nav = ({callback, closeMenu, dm}) => {
 
 
     return (
-        <nav className={dm.dark_mode && !close ? styles.navDarkmode : styles.nav} style={close? {width:'0px',padding: '0px', margin: '0px'} : {width: '270px'}}>
+        <nav className={dm.dark_mode && !close ? styles.navDarkmode : styles.nav} style={close? {width:'0px',padding: '0px', margin: '0px'} : {width: '210px'}}>
             <div className={dm.dark_mode? styles.logoDivDarkMode : styles.logoDiv}
                 style={close? {width: '85px', height: '80px', padding: '15px', margin: '0px 0px 0px 167px', left: '25px', borderRadius: '5px'}: {}}
             >
@@ -71,8 +74,11 @@ const Nav = ({callback, closeMenu, dm}) => {
                 <li>Politique</li>
                 <li>Economie</li>
                 <li>Culture</li>
+                <li>عربية</li>
             </ul>
-            <div className={styles.menuArabe} style={{display: `${close? 'none': 'block'}`}}>عربية</div>
+            {!close && <DarkMode callbackDM={callbackDM} dm={dm}/>}
+            {!close && <Language callbackLang={callbackLang} lang={lang} dm={dm}/>}
+            {/* <div className={styles.menuArabe} style={{display: `${close? 'none': 'block'}`}}>عربية</div> */}
             <div className={styles.copyright} style={{display: `${close? 'none': 'block'}`}}>
                 <p>Copyright &copy; Sudan News - 2020 - Tous droits réservés</p>
                 <p>Développé par Paul Carillion</p>

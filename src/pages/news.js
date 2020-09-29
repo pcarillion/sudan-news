@@ -38,8 +38,8 @@ const News = () => {
 
     return (
         <Layout>
-            {props =>(<div className={style.container} style={{marginLeft: `${props.close? '0px': '334px'}`}}>
-                    <div className={`${style.header} ${props.dark_mode && style.headerDm}`} style={{height: '85px', marginLeft: `${props.close? '25px': '25px'}`, width: `${props.close ? 'calc(100vw - 66px)': 'calc(100vw - 334px - 66px)'}`}}>
+            {props =>(<div className={style.container} style={{marginLeft: `${props.close? '0px': '260px'}`}}>
+                    <div className={`${style.header} ${props.dark_mode && style.headerDm}`} style={{height: '65px', width: `${props.close ? 'calc(100vw - 51px)': 'calc(100vw - 260px)'}`}}>
                         <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>News</h1>
                         <p className={'header-p'}>Ceci est la section News dans laquelle sont écrites des brèves sur l'actualité au Soudan</p>
                     </div>
@@ -47,14 +47,14 @@ const News = () => {
                     <div className={style.articlePresentation}
                         style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
                         >
-                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
+                            <div className={style.thumbnailDiv} style={{backgroundImage : 'linear-gradient(to right, rgba(51, 51, 51, 0.7), rgba(51, 51, 51, 0.3)), url(https://resize-europe1.lanmedia.fr/f/webp/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/international/soudan-une-centaine-de-morts-dans-des-inondations-2820592/28428526-1-fre-FR/Soudan-une-centaine-de-morts-dans-des-inondations.png)'}}>
                                 <div className={style.articleText}>
                                     <h2>
                                         Les inondations au Soudan
                                     </h2>
                                     <p>
+                                        Mona Basha | 30 septembre 2020 <br/>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. 
-
                                     </p>
                                 </div>
                             </div>

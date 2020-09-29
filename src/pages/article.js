@@ -16,8 +16,8 @@ export default function Article() {
 
   return <Layout>
     {props =>(
-      <div className={styles.container} style={{marginLeft: `${props.close? '0px': '334px'}`}}>
-        <div className={`${styles.header} ${props.dark_mode && styles.headerDm}`} style={{height: '85px', marginLeft: `${props.close? '25px': '25px'}`, width: `${props.close ? 'calc(100vw - 66px)': 'calc(100vw - 334px - 66px)'}`}}>
+      <div className={styles.container} style={{marginLeft: `${props.close? '0px': '260px'}`}}>
+        <div className={`${styles.header} ${props.dark_mode && styles.headerDm}`} style={{height: '65px', width: `${props.close ? 'calc(100vw - 66px)': 'calc(100vw - 260px - 66px)'}`}}>
                         <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>La révolution ne s'arrête pas</h1>
                         <p className={'header-p'}>20 Septembre 2020 | Mona Basha</p>
                     </div>
