@@ -57,7 +57,7 @@ const Nav = ({callback, closeMenu, callbackDM, callbackLang, lang, dm}) => {
             >
               <Img fluid={dm.dark_mode? logowhite.childImageSharp.fluid : logo.childImageSharp.fluid} className={styles.logo}/>
               <div className={styles.menuIcon}
-                style={close? {opacity: '1'} : {opacity: '0'}}
+                style={close? {opacity: '1', transition: 'all 1s linear'} : {opacity: '0', transition: 'none'}}
                 onClick={handleClose}
               >
                 <div className={dm.dark_mode ? styles.menuIcon1dm: styles.menuIcon1}></div>

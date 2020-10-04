@@ -5,7 +5,7 @@
 .container {
     margin-left: 260px;
     /* padding-top: 25px; */
-    transition: all 1s linear;
+    transition: all 0.4s linear;
 }
 
 .header {
@@ -18,7 +18,7 @@
     width: calc(100vw - 260px);
     position: fixed;
     z-index: 2;
-    transition: all 1s linear;
+    transition: all 0.4s linear;
     display: flex;
     flex-direction: row;
     align-items: center;
