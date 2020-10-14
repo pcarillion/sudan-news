@@ -1,143 +1,93 @@
 import React from "react"
 
 // plugins
-import {graphql} from 'gatsby'
+import {graphql, useStaticQuery} from 'gatsby'
 import Img from 'gatsby-image'
 import { Helmet } from "react-helmet"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 // css et script
 import styles from '../styles/index.module.css'
+import style from '../styles/category.module.css'
+
 // import '../scripts/script'
 
 // js
 import Layout from '../components/Layout'
 
+// data
+const query = graphql`
+query {
+  articles:allContentfulArticle{
+    edges{
+      node{
+       	titre
+        dateFR: dateDePublication(formatString:"Do MMMM YYYY", locale: "fr")
+        dateAr: dateDePublication(formatString:"MMMM Do YYYY", locale: "ar")
+        image
+        auteur {
+          nom
+        }
+        presentation {
+          internal {
+            content
+          }
+        }
+        titreEnArabe
+        PresentationEnArabe {
+          json
+        }
+      }
+    }
+  }
+}`
+
 export default function Home() {
+  const {articles} = useStaticQuery(query);
+
 
   return <Layout>
     {props =>(
-      <div className={styles.container}>
-        <div className={`header ${styles.header} ${props.dark_mode && styles.headerDm}`} style={{height: '65px', marginLeft: `${props.close? '25px': '0px'}`, width: `${props.close ? 'calc(100vw - 66px)': 'calc(100vw - 260px)'}`}}>
-                        <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>News</h1>
-                        <p className={'header-p'}>Ceci est la section News dans laquelle sont écrites des brèves sur l'actualité au Soudan</p>
+      <div className={style.container} style={{marginLeft: `${props.close? '0px': '260px'}`}}>
+      <div className={`${style.header} ${props.dark_mode && style.headerDm}`} style={{height: '95px', width: `${props.close ? 'calc(100vw - 51px)': 'calc(100vw - 310px)'}`}}>
+                        <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>Sudan News</h1>
+                        <p className={'header-p'}>L'actualité au Soudan en français et en arabe.</p>
                     </div>
-        <div className={styles.article}>
-          {props.the_lang == 'fr' && <h1>
-            La révolution ne s'arrête pas
-          </h1>}
-          {props.the_lang == 'ar' && <h1 dir="rtl" classNam="arab-text">
-          نموذج لوريم ايبسوم عربي -  فرانكوا اراب 
-          </h1>}
-          {props.the_lang == 'fr' && <h3>
-            Un an après la chute du régime, les manifestations continuent à Khartoum et la répression ne s'arrête pas.
-          </h3>}
-          {props.the_lang == 'ar' && <h3 dir="rtl" classNam="arab-text">
-            "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-
-            أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-
-            أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-
-            أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-
-            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
-
-            كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
-          </h3>}
-          {props.the_lang == 'fr' && <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. Morbi iaculis libero et purus euismod accumsan. Suspendisse vitae orci eu turpis semper pellentesque a ac libero. Sed elementum, quam vitae lobortis dapibus, nisi augue placerat libero, non maximus magna orci vitae velit. Vivamus et tincidunt arcu. Mauris id fringilla turpis, vel laoreet erat. Aenean posuere enim eu scelerisque tristique.
-          </p>}
-          {props.the_lang == 'ar' && <p dir="rtl" classNam="arab-text">
-            "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-
-            أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-
-            أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-
-            أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-
-            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
-
-            كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
-          </p>}
-          {props.the_lang == 'fr' && <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. Morbi iaculis libero et purus euismod accumsan. Suspendisse vitae orci eu turpis semper pellentesque a ac libero. Sed elementum, quam vitae lobortis dapibus, nisi augue placerat libero, non maximus magna orci vitae velit. Vivamus et tincidunt arcu. Mauris id fringilla turpis, vel laoreet erat. Aenean posuere enim eu scelerisque tristique.
-          </p>}
-          {props.the_lang == 'ar' && <p dir="rtl" classNam="arab-text">
-            "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-
-            أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-
-            أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-
-            أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-
-            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
-
-            كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
-          </p>}{props.the_lang == 'fr' && <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. Morbi iaculis libero et purus euismod accumsan. Suspendisse vitae orci eu turpis semper pellentesque a ac libero. Sed elementum, quam vitae lobortis dapibus, nisi augue placerat libero, non maximus magna orci vitae velit. Vivamus et tincidunt arcu. Mauris id fringilla turpis, vel laoreet erat. Aenean posuere enim eu scelerisque tristique.
-          </p>}
-          {props.the_lang == 'ar' && <p dir="rtl" classNam="arab-text">
-            "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-
-            أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-
-            أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-
-            أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-
-            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
-
-            كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
-          </p>}{props.the_lang == 'fr' && <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. Morbi iaculis libero et purus euismod accumsan. Suspendisse vitae orci eu turpis semper pellentesque a ac libero. Sed elementum, quam vitae lobortis dapibus, nisi augue placerat libero, non maximus magna orci vitae velit. Vivamus et tincidunt arcu. Mauris id fringilla turpis, vel laoreet erat. Aenean posuere enim eu scelerisque tristique.
-          </p>}
-          {props.the_lang == 'ar' && <p dir="rtl" classNam="arab-text">
-            "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-
-            أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-
-            أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-
-            أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-
-            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
-
-            كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
-          </p>}{props.the_lang == 'fr' && <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. Morbi iaculis libero et purus euismod accumsan. Suspendisse vitae orci eu turpis semper pellentesque a ac libero. Sed elementum, quam vitae lobortis dapibus, nisi augue placerat libero, non maximus magna orci vitae velit. Vivamus et tincidunt arcu. Mauris id fringilla turpis, vel laoreet erat. Aenean posuere enim eu scelerisque tristique.
-          </p>}
-          {props.the_lang == 'ar' && <p dir="rtl" classNam="arab-text">
-            "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-
-            أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-
-            أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-
-            أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-
-            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
-
-            كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
-          </p>}{props.the_lang == 'fr' && <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis quis ligula eget commodo. Donec malesuada vel urna eget tincidunt. Praesent posuere sodales lorem non imperdiet. Proin fringilla lorem sapien, eget luctus ipsum vestibulum ac. Suspendisse ac erat sed lorem egestas sodales. Ut sed feugiat mi. Duis luctus a dolor eu faucibus. Morbi iaculis libero et purus euismod accumsan. Suspendisse vitae orci eu turpis semper pellentesque a ac libero. Sed elementum, quam vitae lobortis dapibus, nisi augue placerat libero, non maximus magna orci vitae velit. Vivamus et tincidunt arcu. Mauris id fringilla turpis, vel laoreet erat. Aenean posuere enim eu scelerisque tristique.
-          </p>}
-          {props.the_lang == 'ar' && <p dir="rtl" classNam="arab-text">
-            "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-
-            أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-
-            أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-
-            أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-
-            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
-
-            كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
-          </p>}
-                    
+        <div className={style.presentationsContainer}>
+          {
+            articles.edges.map((article, i) => {
+              return(
+                <div className={style.articlePresentation}
+                        style={props.dark_mode?{backgroundColor : 'black'}:{backgroundColor : 'white'}}
+                        > 
+                              <div className={style.thumbnailDiv} style={{backgroundImage : `linear-gradient(to right, rgba(51, 51, 51, 0.7), rgba(51, 51, 51, 0.3)), url(${article.node.image})`}}>
+                                {props.the_lang === 'fr'?
+                                  <div className={style.articleText}>
+                                      <h2>
+                                          {article.node.titre}
+                                      </h2>
+                                      <p>
+                                          {article.node.auteur.nom} | {article.node.dateFR} <br/>
+                                          {article.node.presentation.internal.content} 
+                                      </p>
+                                  </div>:
+                                  <div className={style.articleText} dir="rtl">
+                                      <h2 className={style.textArabe}>
+                                          {article.node.titreEnArabe}
+                                      </h2>
+                                      <p className={style.textArabe} dir="rtl">
+                                          {article.node.dateAR} | {article.node.auteur.nom} <br/>
+                                          {documentToReactComponents(article.node.PresentationEnArabe.json)} 
+                                      </p>
+                                  </div>
+                                }
+                              </div> 
+                </div>
+              )
+            })
+          }
         </div>
+
       </div>
       )}
 

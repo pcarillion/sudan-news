@@ -12,7 +12,7 @@ import styles from '../styles/index.module.css'
 // js
 import Layout from '../components/Layout'
 
-export default function Article() {
+export default function Articletest() {
 
   return <Layout>
     {props =>(

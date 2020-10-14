@@ -32,7 +32,9 @@ const Layout = (props) => {
     }
 
     return (
-        <main>
+        <main 
+            style={darkMode.dark_mode == true ? {backgroundColor: '#04101B', height: '100vh'} : {backgroundColor : 'white', height: '100vh'}}
+            >
             {/* <Language callback={setLang} lang={language} dm={darkMode}/>
             <DarkMode callback={setDM} dm={darkMode}/> */}
             <Navbar callback={setClose} close={closeMenu} dm={darkMode} callbackDM={setDM} callbackLang={setLang} lang={language} dm={darkMode}></Navbar>

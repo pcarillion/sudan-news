@@ -38,8 +38,9 @@ const News = () => {
 
     return (
         <Layout>
-            {props =>(<div className={style.container} style={{marginLeft: `${props.close? '0px': '260px'}`}}>
-                    <div className={`${style.header} ${props.dark_mode && style.headerDm}`} style={{height: '65px', width: `${props.close ? 'calc(100vw - 51px)': 'calc(100vw - 260px)'}`}}>
+            {props =>(
+                <div className={style.container} style={{marginLeft: `${props.close? '0px': '260px'}`}}>
+                    <div className={`${style.header} ${props.dark_mode && style.headerDm}`} style={{height: '95px', width: `${props.close ? 'calc(100vw - 51px)': 'calc(100vw - 260px)'}`}}>
                         <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>News</h1>
                         <p className={'header-p'}>Ceci est la section News dans laquelle sont écrites des brèves sur l'actualité au Soudan</p>
                     </div>

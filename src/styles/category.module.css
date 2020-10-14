@@ -9,7 +9,8 @@
 }
 
 .header {
-    padding: 25px 25px 15px 25px;
+    padding: 5px 25px 5px 25px;
+    height: 105px;
     /* margin: 0 0 0 25px; */
     background-color: white;
     /* box-shadow: 0 2px 5px 0 rgba(51,51,79,.07); */
@@ -31,21 +32,17 @@
     color: white;
 }
 
-.header * {
-    text-align: center;
-}
+
 
 .header h1 {
     color: #CC4400;
     width: 160px;
-    border-right: rgba(0, 0, 0, 0.3) 0.5px solid;
-    padding: 20px;
-    text-align: right;
+    padding: 5px 20px;
+    max-height: 100%;
 }
 
 .header p {
     width: 450px;
-    text-align: left;
     padding: 20px;
 }
 
@@ -64,15 +61,7 @@
     display: flex;
     flex-direction: row;
 }
-.article-presentation:first-of-type, .article-presentation:first-of-type .thumbnailDiv{
-    /* border-top-left-radius: 5px; */
-    /* border-top-right-radius: 5px; */
 
-}
-.article-presentation:last-of-type, .article-presentation:last-of-type .thumbnailDiv{
-    /* border-bottom-left-radius: 5px; */
-    /* border-bottom-right-radius: 5px; */
-}
 
 
 .thumbnailDiv {
@@ -91,6 +80,11 @@
     position: relative;
 }
 
+.articleTextArabe {
+    width: 95%;
+    position: relative
+}
+
 .articleText h2 {
     margin-bottom: 20px;
     font-family: 'Thasadith';
@@ -104,7 +98,7 @@
     transition: all linear 0.3s;
 }
 
-.articleText p {
+.articleText > p {
     font-size: 15px;
     font-family: 'Thasadith';
     font-weight: 300;
@@ -116,6 +110,11 @@
     top: 80px;
     left: 20px;
     width: calc(100vw - 320px)
+}
+
+.articleText p.textArabe, .articleText p.textArabe p, .articleText h2.textArabe {
+    text-align: right;
+    right: 0;
 }
 
 .thumbnailDiv:hover h2 {

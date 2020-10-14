@@ -17,6 +17,16 @@ body {
      /* rgba(18, 8, 240, 0.3); */
 }
 
+a {
+    color: black;
+    font-weight: 400;
+    transition: 0.3s linear all;
+}
+
+a:hover {
+    font-weight: 700;
+}
+
 .hidden {
     display : none;
 }
@@ -142,4 +152,24 @@ body {
 
 .dm_icon {
     height: 100%;
+}
+
+.header-h1 {
+    border-right: rgba(0, 0, 0, 0.3) 0.5px solid;
+    text-align: right;
+}
+
+.header-h1-ar {
+    border-left: rgba(0, 0, 0, 0.3) 0.5px solid;
+    text-align: left;
+}
+
+.header-p {
+    text-align: left;
+    direction: ltr;
+}
+
+.header-p-ar {
+    text-align: right;
+    direction: rtl;
 }

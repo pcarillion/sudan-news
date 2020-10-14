@@ -4,6 +4,7 @@ import {graphql, useStaticQuery} from 'gatsby'
 // plugins
 import Img from 'gatsby-image'
 import { Helmet } from "react-helmet"
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 // css et script
 import styles from '../styles/navandfooter.module.css'
@@ -31,11 +32,20 @@ query {
         }
       }
   }
+  categories:allContentfulCategorie{
+    edges{
+      node{
+        nom
+        nomEnArabe
+        url
+      }
+    }
+  }
 }
 `
 
 const Nav = ({callback, closeMenu, callbackDM, callbackLang, lang, dm}) => {
-    const {logo, logowhite} = useStaticQuery(query);
+    const {logo, logowhite, categories} = useStaticQuery(query);
 
     const [close, setClose] = useState(false);
 
@@ -49,6 +59,7 @@ const Nav = ({callback, closeMenu, callbackDM, callbackLang, lang, dm}) => {
       }
     }
 
+    console.log(lang)
 
     return (
         <nav className={dm.dark_mode && !close ? styles.navDarkmode : styles.nav} style={close? {width:'0px',padding: '0px', margin: '0px'} : {width: '210px'}}>
@@ -67,14 +78,9 @@ const Nav = ({callback, closeMenu, callbackDM, callbackLang, lang, dm}) => {
             </div>
             <button className={dm.dark_mode ? styles.closeBtndm : styles.closeBtn} onClick={handleClose} style={{display: `${close? 'none': 'block'}`}}>X</button>
             <ul style={{display: `${close? 'none': 'block'}`}}>
-                <li>News</li>
-                <li>Reports</li>
-                <li>Documents</li>
-                <li>Maps</li>
-                <li>Politique</li>
-                <li>Economie</li>
-                <li>Culture</li>
-                <li>عربية</li>
+                {categories.edges.map((categorie, i) => {
+                  return (<AniLink fade to={`/categorie/${categorie.node.url}`}><li>{lang.the_lang == 'fr'? categorie.node.nom : categorie.node.nomEnArabe}</li></AniLink>)}
+                )}
             </ul>
             {!close && <DarkMode callbackDM={callbackDM} dm={dm}/>}
             {!close && <Language callbackLang={callbackLang} lang={lang} dm={dm}/>}
