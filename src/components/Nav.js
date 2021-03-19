@@ -32,7 +32,7 @@ query {
         }
       }
   }
-  categories:allContentfulCategorie{
+  categories:allContentfulCategorie(sort:{fields:ordre, order: ASC}){
     edges{
       node{
         nom
@@ -44,10 +44,12 @@ query {
 }
 `
 
-const Nav = ({callback, closeMenu, callbackDM, callbackLang, lang, dm}) => {
+const Nav = ({callback, is_closed}) => {
     const {logo, logowhite, categories} = useStaticQuery(query);
 
-    const [close, setClose] = useState(false);
+    const [close, setClose] = useState(is_closed.close);
+
+    console.log(is_closed.close)
 
     const handleClose = () => {
       if (close == false) {
@@ -59,32 +61,29 @@ const Nav = ({callback, closeMenu, callbackDM, callbackLang, lang, dm}) => {
       }
     }
 
-    console.log(lang)
+
 
     return (
-        <nav className={dm.dark_mode && !close ? styles.navDarkmode : styles.nav} style={close? {width:'0px',padding: '0px', margin: '0px'} : {width: '210px'}}>
-            <div className={dm.dark_mode? styles.logoDivDarkMode : styles.logoDiv}
+        <nav className={styles.navDarkmode} style={close? {width:'0px',padding: '0px', margin: '0px'} : {width: '210px'}}>
+            <div className={styles.logoDivDarkMode}
                 style={close? {width: '85px', height: '80px', padding: '15px', margin: '0px 0px 0px 167px', left: '25px', borderRadius: '5px'}: {}}
             >
-              <Img fluid={dm.dark_mode? logowhite.childImageSharp.fluid : logo.childImageSharp.fluid} className={styles.logo}/>
+              <AniLink fade to='/'><Img fluid={logowhite.childImageSharp.fluid} className={styles.logo}/></AniLink>
               <div className={styles.menuIcon}
                 style={close? {opacity: '1', transition: 'all 1s linear'} : {opacity: '0', transition: 'none'}}
                 onClick={handleClose}
               >
-                <div className={dm.dark_mode ? styles.menuIcon1dm: styles.menuIcon1}></div>
-                <div className={dm.dark_mode ? styles.menuIcon2dm: styles.menuIcon2}></div>
-                <div className={dm.dark_mode ? styles.menuIcon3dm: styles.menuIcon3}></div>
+                <div className={styles.menuIcon1dm}></div>
+                <div className={styles.menuIcon2dm}></div>
+                <div className={styles.menuIcon3dm}></div>
               </div>
             </div>
-            <button className={dm.dark_mode ? styles.closeBtndm : styles.closeBtn} onClick={handleClose} style={{display: `${close? 'none': 'block'}`}}>X</button>
+            <button className={styles.closeBtndm} onClick={handleClose} style={{display: `${close? 'none': 'block'}`}}>X</button>
             <ul style={{display: `${close? 'none': 'block'}`}}>
                 {categories.edges.map((categorie, i) => {
-                  return (<AniLink fade to={`/categorie/${categorie.node.url}`}><li>{lang.the_lang == 'fr'? categorie.node.nom : categorie.node.nomEnArabe}</li></AniLink>)}
+                  return (<AniLink fade to={`/categorie/${categorie.node.url}`} activeStyle={{ fontWeight: "600", cursor: 'default' }}><li style={{color: 'white'}}>{categorie.node.nom}</li></AniLink>)}
                 )}
             </ul>
-            {!close && <DarkMode callbackDM={callbackDM} dm={dm}/>}
-            {!close && <Language callbackLang={callbackLang} lang={lang} dm={dm}/>}
-            {/* <div className={styles.menuArabe} style={{display: `${close? 'none': 'block'}`}}>عربية</div> */}
             <div className={styles.copyright} style={{display: `${close? 'none': 'block'}`}}>
                 <p>Copyright &copy; Sudan News - 2020 - Tous droits réservés</p>
                 <p>Développé par Paul Carillion</p>

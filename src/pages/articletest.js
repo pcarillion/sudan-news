@@ -20,7 +20,7 @@ export default function Articletest() {
         <div className={`${styles.header} ${props.dark_mode && styles.headerDm}`} style={{height: '65px', width: `${props.close ? 'calc(100vw - 66px)': 'calc(100vw - 260px - 66px)'}`}}>
                         <h1 style={props.close? {marginLeft: '150px'} : {marginLeft: '0'}}>La révolution ne s'arrête pas</h1>
                         <p className={'header-p'}>20 Septembre 2020 | Mona Basha</p>
-                    </div>
+        </div>
         <div className={props.dark_mode? styles.articledm : styles.article} style={props.close? {} : {}}>
           {props.the_lang == 'fr' && <h1>
             La révolution ne s'arrête pas

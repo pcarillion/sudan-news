@@ -30,11 +30,11 @@ const DarkMode = ({callbackDM, dm}) => {
 
     return (
             <div class='dm_icon_div'
-            onClick={dm.dark_mode === true? 
-                () => callbackDM(false):
-                () => callbackDM(true)}
+            onClick={dm.dark_mode == "true"? 
+                () => callbackDM("false"):
+                () => callbackDM("true")}
             >
-                <Img class='dm_icon' fluid={dm.dark_mode? sun.childImageSharp.fluid : moon.childImageSharp.fluid} />
+                <Img class='dm_icon' fluid={dm.dark_mode == "true" ? sun.childImageSharp.fluid : moon.childImageSharp.fluid} />
             </div>
     )
 }

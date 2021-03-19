@@ -3,7 +3,7 @@ import DarkMode from './DarkMode'
 
 const Language = ({callbackLang, lang, dm}) => {
     return (
-        <div className={dm.dark_mode? "language-button dm-color-white" : "language-button"}>
+        <div className={dm.dark_mode ==  true ? "language-button dm-color-white" : "language-button"}>
             <div onClick={() => callbackLang('fr')} className={lang.the_lang === 'fr' ? 'active': 'non-active'}>
                 <p>Français</p>
             </div>

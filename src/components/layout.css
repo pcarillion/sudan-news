@@ -155,7 +155,7 @@ a:hover {
 }
 
 .header-h1 {
-    border-right: rgba(0, 0, 0, 0.3) 0.5px solid;
+    border-right: grey 1px solid;
     text-align: right;
 }
 
