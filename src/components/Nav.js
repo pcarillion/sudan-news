@@ -61,10 +61,23 @@ const Nav = ({callback, is_closed}) => {
       }
     }
 
+    useEffect(() => {
+      var x = window.matchMedia("(max-width: 700px)")
+      if (x.matches) { 
+          setClose(true)
+          callback(true)
+
+        } else {
+          setClose(false)
+          callback(false)
+
+        }
+  }, [])
+
 
 
     return (
-        <nav className={styles.navDarkmode} style={close? {width:'0px',padding: '0px', margin: '0px'} : {width: '210px'}}>
+        <nav className={`${styles.navDarkmode} ${close && styles.mobileopen}`} style={close? {width:'0px',padding: '0px', margin: '0px'} : {width: '210px'}}>
             <div className={styles.logoDivDarkMode}
                 style={close? {width: '85px', height: '80px', padding: '15px', margin: '0px 0px 0px 167px', left: '25px', borderRadius: '5px'}: {}}
             >

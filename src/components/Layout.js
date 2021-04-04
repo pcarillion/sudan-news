@@ -15,7 +15,7 @@ import DarkMode from './DarkMode'
 const Layout = (props) => {
 
     
-    const [closeMenu, setCloseMenu] = useState({close: false});
+    const [closeMenu, setCloseMenu] = useState({close: true});
 
     // if (localStorage.language) {
     //     setLanguage({the_lang: localStorage.language})
@@ -47,6 +47,8 @@ const Layout = (props) => {
     //     setDarkMode({dark_mode : dm})
     //     localStorage.setItem('darkmode', dm);
     // }
+
+
 
 
     const setClose = close => {

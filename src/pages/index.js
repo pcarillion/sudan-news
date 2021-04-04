@@ -65,7 +65,7 @@ export default function Home() {
                             > 
                                   <div className={style.thumbnailDiv} style={{backgroundImage : `linear-gradient(to right, rgba(51, 51, 51, 0.7), rgba(51, 51, 51, 0.3)), url(${article.node.image})`}}>
                                       <div className={style.articleText}>
-                                          <h2>
+                                          <h2 className={!props.close && style.mobilehidden}>
                                               {article.node.titre}
                                           </h2>
                                           <p>

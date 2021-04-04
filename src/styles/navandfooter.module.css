@@ -204,3 +204,21 @@ nav li {
     height: 30px;
     border-radius: 90px;
 }
+
+@media screen and (max-width: 900px) {
+
+    .menu-icon {
+        position: fixed;
+        left: calc(100vw - 80px);
+        top: 29px;
+    }
+
+    .mobileopen .logo {
+        position: fixed;
+        left: -30px;
+        top: -5px;
+
+    }
+
+}
+

@@ -105,5 +105,23 @@
     font-size: 20px;
     margin: 20px 0;
     color: white;
-    line-height: 1.5;
+    line-height: 1.6;
+}
+
+.articledm a {
+    color: #CC4400;
+}
+
+.articledm a:hover {
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 900px) {
+
+    .articledm {
+        width: calc(100vw - 40px);
+        padding: 150px 20px;
+    }
+
 }

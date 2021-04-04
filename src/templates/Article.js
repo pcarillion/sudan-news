@@ -14,10 +14,12 @@ const Article = ({data, property}) => {
         {props =>(
             <div className={style.container} style={{marginLeft: `${props.close? '0px': '260px'}`}}> 
                     <div className={`${style_article.header} ${style.headerDm}`} style={{height: '95px', width: `${props.close ? 'calc(100vw - 67px)': 'calc(100vw - 328px)'}`}}>
-                        <h1 className={'header-h1'} style={props.close? {marginLeft: '170px'} : {marginLeft: '0'}}>{data.article.titre}</h1>
-                        <p className={'header-p'}>{data.article.auteur.nom} <br/> {data.article.dateDePublication}</p>
+                        <h1 className={'header-h1 h1-article'} style={props.close? {marginLeft: '170px'} : {marginLeft: '0'}}>{data.article.titre}</h1>
+                        <p className={'header-p header-p-article'}>{data.article.auteur.nom} <br/> {data.article.dateDePublication}</p>
                     </div>
                 <div className={styles.articledm} style={props.close? {} : {}}>
+                    <h1 className={'header-h1-mobile'}>{data.article.titre}</h1>
+                    <p className={'header-p-mobile'}>{data.article.auteur.nom} <br/> {data.article.dateDePublication}</p>
                     <p>
                     {data.article.presentation.internal.content}
                     </p>
