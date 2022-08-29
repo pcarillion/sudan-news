@@ -9,15 +9,14 @@ import styles from '../styles/index.module.css'
 import style from '../styles/category.module.css'
 import style_article from '../styles/article.module.css'
 
-const Article = ({data, property}) => {
+const Article = ({data}) => {
         return (<Layout>
-        {props =>(
-            <div className={style.container} style={{marginLeft: `${props.close? '0px': '260px'}`}}> 
-                    <div className={`${style_article.header} ${style.headerDm}`} style={{height: '95px', width: `${props.close ? 'calc(100vw - 67px)': 'calc(100vw - 328px)'}`}}>
-                        <h1 className={'header-h1 h1-article'} style={props.close? {marginLeft: '170px'} : {marginLeft: '0'}}>{data.article.titre}</h1>
+            <div className={styles.container}> 
+                    <div className={style_article.header} >
+                        <h1 className={'header-h1 h1-article'} >{data.article.titre}</h1>
                         <p className={'header-p header-p-article'}>{data.article.auteur.nom} <br/> {data.article.dateDePublication}</p>
                     </div>
-                <div className={styles.articledm} style={props.close? {} : {}}>
+                <div className={styles.articledm}>
                     <h1 className={'header-h1-mobile'}>{data.article.titre}</h1>
                     <p className={'header-p-mobile'}>{data.article.auteur.nom} <br/> {data.article.dateDePublication}</p>
                     <p>
@@ -32,10 +31,8 @@ const Article = ({data, property}) => {
                             </div> 
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
-
-        )}
         </Layout>)
 }
 
